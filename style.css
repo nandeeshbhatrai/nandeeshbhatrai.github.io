@@ -14,7 +14,7 @@ body {
     width: 200px;
     height:200px;
     margin-top: 10px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s cubic-bezier(0, 3.18, 0.66,-0.24);
   }
 
   .imagine{
