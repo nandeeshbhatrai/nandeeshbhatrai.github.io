@@ -2,7 +2,7 @@
 
 Name- Nandeesh Bhatrai
 
-<img src = "https://i.stack.imgur.com/aF0dE.jpg?s=256&g=1" height="300">
+<img src = "https://i.stack.imgur.com/aF0dE.jpg?s=256&g=1" height="300" style="border-radius:50%;">
 
 I am from Guwahati, Assam.
 I am a student studying in IIT Goa.
