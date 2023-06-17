@@ -1,127 +1,580 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Nandeesh Bhatrai</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 30px;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      animation: fade 18.9s linear infinite;
+    }
+
+    @keyframes fade {
+      0%{
+        filter: brightness(0);
+      }
+      5%{
+        filter: brightness(100%);
+      }
+      95%{
+        filter: brightness(100%);
+      }
+      100%{
+        filter:brightness(0%);
+      }
+    }
+
+    #video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 50px;
+      text-align: center;
+      animation-delay: 0.5s;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 30px;
+      animation-delay: 1s;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 20px;
+      animation-delay: 1s;
+    }
+
+    .imagine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0s;
+    }
+
+    .click {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .click:hover {
+      color: #ffcc00;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #ffcc00;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1.5s;
+    }
+
+    .badge:hover {
+      background-color: #fff;
+      color: #ffcc00;
+    }
+
+    /* pre {
+      font-size: 16px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1.5s;
+    } */
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffcc00;
+    }
+
+    ul, ol {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1.5s;
+    }
+
+    li {
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    u {
+      text-decoration: none;
+      border-bottom: 5px solid #ffcc00;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #fff;
+      margin-top: 30px;
+      margin: 30px 0;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .connect {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .connect a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+      align-self:center;
+    }
+    .connect a:hover {
+  color: #ffcc00;
+}
+
+.connect a:hover i {
+  animation: glow 1s infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ffcc00;
+  }
+  50% {
+    text-shadow: 0 0 20px #ffcc00;
+  }
+  100% {
+    text-shadow: 0 0 5px #ffcc00;
+  }
+}
+
+    .message-me {
+      width: 300px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 10px;
+    }
+
+    .message-me input,
+    .message-me textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      color: #fff;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .message-me button {
+      padding: 10px 20px;
+      background-color: #ffcc00;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .message-me button[disabled] {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .footer .left {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer .left i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .footer .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer .right input {
+      margin-right: 10px;
+    }
+
+    .footer .right button {
+      background-color: #ffcc00;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer .right button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+
+    .copyright {
+      color: #fff;
+      opacity: 0.7;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+
+    .projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 1.5s;
+  }
+
+  .project {
+    margin: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .project:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 20px rgba(205, 204, 0, 1);
+    animation: glow 0.5s linear infinite;
+  }
+
+  .project-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffcc00;
+  }
+
+  .project-description {
+    font-size: 16px;
+  }
+
+  .more {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    opacity: 7;
+    font-size: 20px;
+  }
+
+  .section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1s;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1.5s;
+}
+
+.skill {
+  margin: 20px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.skill i {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.skill span {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skill ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.skill ul li {
+  margin-bottom: 5px;
+}
+
+.skill:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(205, 204, 0, 1);
+  animation: glow 0.5s linear infinite;
+}
+
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1s;
+}
+
+.about-content {
+  text-align: center;
+  margin-right: 50px;
+}
+
+.about-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  font-size: 16px;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.about-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  </style>
 </head>
-<link rel="stylesheet" href="style.css">
 <body>
-
-  <h1>About Me</h1>
-
-  <div class="imagine">
-  <a href="https://math.stackexchange.com/users/806601/nandeesh-bhatrai" target="_blank"><img src = "https://i.stack.imgur.com/aF0dE.jpg?s=256&g=1" alt="Nandeesh Bhatrai - The bright future!"></a>
-
-  <div class="clickme"><p class="click">👈click me!</p></div>
-</div>
-
-
-  <br>
-
-  
-  <strong>Nandeesh Bhatrai</strong>
-  
-  <pre>I am from Guwahati, Assam. 
-I am a student studying at <a href="https://iitgoa.ac.in" target="_blank">IIT Goa</a>. 
-I am currently persuing Computer Science and Engineering!</pre>
-
-  <hr>
-	
-  <h1>Education</h1>
-  <table border = "1" cellpadding = "4">
-	  <tr>
-		  <td>Academic Year</td>
-		  <td>Standard</td>
-		  <td>School Name</td>
-	  </tr>
-
-	  <tr>
-		  <td>2022</td>
-		  <td>12</td>
-		  <td>KV AFS Borjhar</td>
-	  </tr>
-	  <tr>
-		  <td>2022 - present</td>
-		  <td>B.Tech</td>
-		  <td>IIT Goa</td>
-	  </tr>
-  </table>
-
-  <hr>
-
-  <u><h1>Course @IIT Goa</h1></u>
-  <br>
-
-  <h3>Spring Semester</h3>
-
-  <ol type = "i">
-	  <li><strong>CS 101</strong>Introduction to Computing <i>Clint P. George</i></li>
-	  <li><strong>MTH 101</strong>Calculus</li>
-	  <li><strong>PH 101</strong>Quantum Physics and Application</li>
-	  <li><strong>CH 101</strong>Physical Chemistry</li>
-	  <li><strong>CH 102</strong>Inorganic and Organic Chemistry</li>
-	  <li><strong>Ch 104</strong>Chemistry Lab</li>
-	  <li><strong>HS 101</strong>Foundation Programme In Humanities and social science</li>
-	  <li><strong>CS 100</strong>Introduction to Profession</li>
-  </ol>
-    
-    <br>
-
-  <h3>Autumn Semester</h3>
-
-  <ul style = "list-style-type:square;">
-	  <li><strong>CS 102</strong> Software Tools <i>Clint P. George</i></li>
-	  <li><strong>PH 103 Physics Lab</strong> <i>Vaibhav Wasnik</i></li>
-	  <li><strong>MTH 103</strong> Differential Equations <i>Saumya Bajpayi</i></li>
-	  <li><strong>PH 102</strong> Electricity and Magnetism <i>Santosh Kumar</i></li>
-	  <li><strong>MTH 102</strong>Basic Linear Algebra <i>Kalpesh Haria</i></li>
-	  <li><strong>BIO 101</strong>Introduction to Biology <i>Neepa Chundagar</i></li>
-	  <li><strong>ME 102</strong>Engineering Graphics and Introduction to computer aided drawing</li>
-  </ul>
-
-  <hr>
-
-  <h1>Hobbies, Interests, Extra Cirricular Activities, Projects</h1>
-
-  <h3>My Hobbies</h3>
-  <p>I have a ranging variety of hobbies including:
-  </p>
-
-
-<a href="https://i.ytimg.com/vi/9DG3wjXKMYc/maxresdefault.jpg" target="_blank"><span class="badge">Badminton 🏸</span></a>
-<a href="https://www.chess.com/member/hellonandeesh" target="_blank"><span class="badge">Chess ♘</span></a>
-<a href="https://cdn.shopify.com/s/files/1/0128/3633/9802/products/81TNNiaHZEL._SL1500_878x700.jpg?v=1587822203" target="_blank"><span class="badge">Painting 🎨🖌️</span></a>
-<div class="alldots">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+  <div id="video-background">
+    <video autoplay loop muted>
+      <source src="km_20230617_1080p_60f_20230617_141610.mp4" type="video/mp4">
+    </video>
   </div>
+  <h1 class="section-title">About Me</h1>
+<div class="about-container">
+  <div class="about-content">
+    <h2 class="about-title">Nandeesh Bhatrai</h2>
+    <pre class="about-description">I am from Guwahati, Assam. 
+      I am a student studying at <a href="https://iitgoa.ac.in" target="_blank">IIT Goa</a>.
+       I am currently pursuing Computer Science and Engineering!</p>
+  </div>
+  <div class="about-image">
+    <a href="https://math.stackexchange.com/users/806601/nandeesh-bhatrai" target="_blank">
+      <img src="https://i.stack.imgur.com/aF0dE.jpg?s=256&g=1" alt="Nandeesh Bhatrai - The bright future!" style="border-radius: 50%;">
+    </a>
+  </div>
+</div>
+ 
+  <hr>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-container">
+    <div class="skill">
+      <i class="fas fa-code"></i>
+      <span>Programming languages:</span>
+      <ul>
+        <li>C++</li>
+        <li>Python</li>
+      </ul>
+    </div>
+    <div class="skill">
+      <i class="fab fa-html5"></i>
+      <span>Web development:</span>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+    <div class="skill">
+      <i class="fas fa-database"></i>
+      <span>Database:</span>
+      <ul>
+        <li>MySQL</li>
+      </ul>
+    </div>
+    <div class="skill">
+      <i class="fab fa-git"></i>
+      <span>Version control:</span>
+      <ul>
+        <li>Git</li>
+        <li>Bash</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <h2>Projects</h2>
+  <div class="projects-container">
+    <a href="https://nandeeshbhatrai.github.io/" class="project">
+      <div class="project-title">Building a personal website using HTML, CSS, and JavaScript</div>
+      <div class="project-description">Designing and developing a personal website to showcase my skills and portfolio.</div>
+    </a>
+    <a href="#" class="project">
+      <div class="project-title">Making a Rock-Paper-Scissors AI using machine learning with Python</div>
+      <div class="project-description">Creating an AI-powered Rock-Paper-Scissors game using machine learning techniques in Python.</div>
+    </a>
+    <a href="#" class="project">
+      <h3 class="project-title">Cat and Dog Image Classifier</h3>
+      <p class="project-description">Developing a machine learning model to classify images as cats or dogs</p>
+    </a>
+  </div>
+    <div class="more">
+    <a href="projects.html">more></a>
+  </div>
+  <hr>
+  <h2>Contact</h2>
+  <div style="opacity:0; animation: fadeInUp 1s forwards; animation-delay: 1.5s;">
+    <p>Email: <a href="mailto:official.nandeeshbhatrai@gmail.com">official.nandeeshbhatrai@gmail.com</a></p>
+  </div>
+  <hr>
+  <div class="connect">
+    <div style="opacity:0; animation: fadeInUp 1s forwards; animation-delay: 1.5s;">
+      <a href="https://www.linkedin.com/in/nandeesh00bhatrai/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/nandeeshbhatrai" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto: official.nandeeshbhatrai@gmail.com" target="_blank"><i class="far fa-envelope"></i></a>
+      <a href="https://www.instagram.com/dope_earth_/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://codeforces.com/profile/nandeesh.bhatrai" target="_blank"><img src="https://sta.codeforces.com/s/93825/favicon.ico" alt="Codeforces"></a>
+      
+      <div class="footer">
+        <div class="left">
+          <i class="fas fa-phone-alt"></i>
+          <span>+91-9101749095</span>
+        </div>
 
-
+      </div>
+    </div>
+  </div>
+<hr>
+  <footer>
+    <div class="footer">
+      <div class="left">
+        <i class="fas fa-code"></i>
+        <span>Designed and built by Nandeesh Bhatrai</span>
+      </div>
+    </div>
+    <p class="copyright">Copyright © 2023 Nandeesh Bhatrai</p>
+  </footer>
 </body>
 </html>
