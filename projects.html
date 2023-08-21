@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        h1 {
+            color: grey;
+            text-align: center;
+        }
+        a {
+            position: relative; /* Add position relative to the link */
+            text-decoration: none;
+            color: green;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 3vh;
+            transition: color 800ms ease-in-out;
+        }
+        a::before {
+            content: "";
+            position: absolute;
+            bottom: -2px; /* Position the underline below the text */
+            left: 50%; /* Center the underline initially */
+            transform: translateX(-50%); /* Center the underline */
+            width: 0; /* Initial width of the underline */
+            height: 2px; /* Height of the underline */
+            background-color: red;
+            transition: width 0.3s ease-in-out; /* Animate the width */
+        }
+        a:hover::before {
+            width: 100%; /* Expand the width to cover the entire text */
+        }
+        ul {
+            list-style-type: circle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Projects/Certificates</h1>
+    <ul>
+        <li>
+            <a href="https://nandeeshbhatrai.github.io/projects/XiomiOde2code.html" target="_blank">Xiaomi Ode2Code 3.0 certificate</a>
+        </li>
+    </ul>
+</body>
+</html>
