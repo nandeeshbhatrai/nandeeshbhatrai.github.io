@@ -10,7 +10,7 @@
             text-align: center;
         }
         a {
-            position: relative; /* Add position relative to the link */
+            position: relative;
             text-decoration: none;
             color: green;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -20,16 +20,16 @@
         a::before {
             content: "";
             position: absolute;
-            bottom: -2px; /* Position the underline below the text */
-            left: 50%; /* Center the underline initially */
-            transform: translateX(-50%); /* Center the underline */
-            width: 0; /* Initial width of the underline */
-            height: 2px; /* Height of the underline */
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
             background-color: red;
-            transition: width 0.3s ease-in-out; /* Animate the width */
+            transition: width 0.3s ease-in-out;
         }
         a:hover::before {
-            width: 100%; /* Expand the width to cover the entire text */
+            width: 100%;
         }
         ul {
             list-style-type: circle;
@@ -41,6 +41,12 @@
     <ul>
         <li>
             <a href="https://nandeeshbhatrai.github.io/projects/XiomiOde2code.html" target="_blank">Xiaomi Ode2Code 3.0 certificate</a>
+        </li>
+        <li>
+            <a href="https://www.finlatics.com/pdfs/bacertificates/83165_certificate.pdf" target="_blank">Business Analyst Certificate</a>
+        </li>
+        <li>
+            <a href="https://www.finlatics.com/pdfs/balor/83165_lor.pdf" target="_blank">Another Certificate</a>
         </li>
     </ul>
 </body>
